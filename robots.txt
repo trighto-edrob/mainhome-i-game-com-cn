@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://trighto-edrob.github.io/mainhome-i-game-com-cn/sitemap.xml
