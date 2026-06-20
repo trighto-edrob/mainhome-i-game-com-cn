@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育 · 一份安静的指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f0f2f5;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* Hero 短句区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2.2rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e6e9ef;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-short {
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            color: #64748b;
+            border-left: 4px solid #b4c8e8;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(145deg, #1e3a5f, #3b5d8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #475569;
+            max-width: 600px;
+            margin-top: 0.5rem;
+        }
+
+        /* 承接段落卡片 */
+        .card-section {
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .leading-paragraph {
+            font-size: 1rem;
+            color: #1e293b;
+            margin-bottom: 1.4rem;
+        }
+
+        .leading-paragraph a {
+            color: #1e4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .leading-paragraph a:hover {
+            border-bottom-color: #1e4a7a;
+        }
+
+        /* 特点列表 —— 卡片内网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 0.75rem;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #eaeef4;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .feature-item:hover {
+            background: #f1f5f9;
+            border-color: #cdd9e8;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0b1b33;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* 温和结尾区域 */
+        .closing {
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid #e2e6ed;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+        }
+
+        .closing p {
+            font-size: 1rem;
+            color: #1e293b;
+            margin-bottom: 1.2rem;
+        }
+
+        .closing p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .closing a {
+            color: #1e4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #1e4a7a;
+        }
+
+        /* FAQ 摘要小卡片 */
+        .faq-mini {
+            background: #fafcfd;
+            border-radius: 24px;
+            padding: 1.6rem 2.2rem;
+            border: 1px solid #e3e8f0;
+            margin-top: 1.5rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a1a2e;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.01em;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1e2f44;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-a {
+            font-size: 0.85rem;
+            color: #4b5a6e;
+            line-height: 1.6;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8896a8;
+            padding: 1.8rem 0 0.5rem;
+            border-top: 1px solid #e0e5ed;
+            margin-top: 1.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .hero {
+                padding: 1.8rem 1.4rem;
+            }
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            .card-section {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .closing {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Hero 开场短句 -->
+    <div class="hero">
+        <div class="hero-short">／ 一则平实的索引</div>
+        <h1 class="hero-title"><span>星空体育</span> · 从一处稳定的起点</h1>
+        <div class="hero-sub">如果你刚刚留意到这个名称，或希望从清晰的位置重新了解，这篇记录就是为此准备的。</div>
+    </div>
+
+    <!-- 承接段落：说明入口与页面角色 -->
+    <div class="card-section">
+        <p class="leading-paragraph">
+            很多时候我们寻找的不是复杂的功能罗列，而是一个干净的、可以持续依赖的坐标。<a href="https://app1-starsky.com">星空体育</a>的定位正是如此：它本身就是一个完整的页面，承载着信息、引导和日常使用中需要的节点。无论你从哪一条路绕进来，只要认准这个地址，就能回到一致的界面。
+        </p>
+        <p class="leading-paragraph" style="margin-bottom: 0.4rem;">
+            这份说明围绕四个基本特征展开，它们不夸大，只是把页面的常态如实描述出来。
+        </p>
+
+        <!-- 特点列表 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>直接呈现</strong>
+                <p>页面内容即为实际功能区域，不经过多层跳转，打开即是主体。</p>
+            </div>
+            <div class="feature-item">
+                <strong>布局稳定</strong>
+                <p>无论使用什么设备，卡片式结构保持对齐，信息层级不易混淆。</p>
+            </div>
+            <div class="feature-item">
+                <strong>标注清晰</strong>
+                <p>标题、分组、链接都有明确的文字说明，减少无意义的图标猜测。</p>
+            </div>
+            <div class="feature-item">
+                <strong>低干扰</strong>
+                <p>没有弹窗、浮动广告或突然的动效，阅读节奏可以由自己控制。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 一个场景段落：温和地解释页面可用性 -->
+    <div class="closing">
+        <p>
+            举例来说，当你需要确认一个信息、查找某个分类，或者只是定期看一眼界面结构，<a href="https://app1-starsky.com">星空体育</a>都是同一扇门。不需要记住复杂的路径，也不需要担心入口被临时改变——它一直以相同的样式等在那里。
+        </p>
+        <p style="color: #334155;">
+            这也是为什么我们反复提及这个地址：它不是用来承诺什么，而是用来让你在需要时找到它。
+        </p>
+
+        <!-- FAQ 摘要（小段） -->
+        <div class="faq-mini">
+            <h3>常见疑问摘要</h3>
+            <div class="faq-item">
+                <span class="faq-q">页面加载后看到什么？</span>
+                <span class="faq-a">直接展示主要功能分区与导航入口，不需要额外登录即可浏览公开内容。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">移动设备上展示会变形吗？</span>
+                <span class="faq-a">卡片和文字根据屏幕宽度自动调整排列，保持基本可读性。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">如何确认自己位于正确的页面？</span>
+                <span class="faq-a">浏览器地址栏显示为 https://app1-starsky.com ，且页面标题、正文均以「星空体育」作为核心标识。</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚小字，温和收尾 -->
+    <div class="footer-note">
+        <span>一份安静的指引 · 星空体育</span>
+    </div>
+</div>
+</body>
+</html>
